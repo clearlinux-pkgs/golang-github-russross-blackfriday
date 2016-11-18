@@ -4,13 +4,12 @@
 #
 Name     : golang-github-russross-blackfriday
 Version  : 151efb040f183f3b968215a236c71a2614b62879
-Release  : 3
+Release  : 4
 URL      : https://github.com/russross/blackfriday/archive/151efb040f183f3b968215a236c71a2614b62879.tar.gz
 Source0  : https://github.com/russross/blackfriday/archive/151efb040f183f3b968215a236c71a2614b62879.tar.gz
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : BSD-2-Clause
-BuildRequires : go
 
 %description
 Blackfriday [![Build Status](https://travis-ci.org/russross/blackfriday.svg?branch=master)](https://travis-ci.org/russross/blackfriday)
@@ -20,14 +19,14 @@ Blackfriday [![Build Status](https://travis-ci.org/russross/blackfriday.svg?bran
 %setup -q -n blackfriday-151efb040f183f3b968215a236c71a2614b62879
 
 %build
+export LANG=C
 
 %install
-gopath="/usr/lib/golang"
+gopath="/usr/lib/golang-dist"
 library_path="github.com/russross/blackfriday"
 rm -rf %{buildroot}
 install -d -p %{buildroot}${gopath}/src/${library_path}/
 for file in $(find . -iname "*.go" -o -iname "*.h" -o -iname "*.c") ; do
-     echo ${file}
      install -d -p %{buildroot}${gopath}/src/${library_path}/$(dirname $file)
      cp -pav $file %{buildroot}${gopath}/src/${library_path}/$file
 done
@@ -35,12 +34,12 @@ done
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/golang/src/github.com/russross/blackfriday/block.go
-/usr/lib/golang/src/github.com/russross/blackfriday/block_test.go
-/usr/lib/golang/src/github.com/russross/blackfriday/html.go
-/usr/lib/golang/src/github.com/russross/blackfriday/inline.go
-/usr/lib/golang/src/github.com/russross/blackfriday/inline_test.go
-/usr/lib/golang/src/github.com/russross/blackfriday/latex.go
-/usr/lib/golang/src/github.com/russross/blackfriday/markdown.go
-/usr/lib/golang/src/github.com/russross/blackfriday/ref_test.go
-/usr/lib/golang/src/github.com/russross/blackfriday/smartypants.go
+/usr/lib/golang-dist/src/github.com/russross/blackfriday/block.go
+/usr/lib/golang-dist/src/github.com/russross/blackfriday/block_test.go
+/usr/lib/golang-dist/src/github.com/russross/blackfriday/html.go
+/usr/lib/golang-dist/src/github.com/russross/blackfriday/inline.go
+/usr/lib/golang-dist/src/github.com/russross/blackfriday/inline_test.go
+/usr/lib/golang-dist/src/github.com/russross/blackfriday/latex.go
+/usr/lib/golang-dist/src/github.com/russross/blackfriday/markdown.go
+/usr/lib/golang-dist/src/github.com/russross/blackfriday/ref_test.go
+/usr/lib/golang-dist/src/github.com/russross/blackfriday/smartypants.go
