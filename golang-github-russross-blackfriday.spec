@@ -4,7 +4,7 @@
 #
 Name     : golang-github-russross-blackfriday
 Version  : 151efb040f183f3b968215a236c71a2614b62879
-Release  : 4
+Release  : 5
 URL      : https://github.com/russross/blackfriday/archive/151efb040f183f3b968215a236c71a2614b62879.tar.gz
 Source0  : https://github.com/russross/blackfriday/archive/151efb040f183f3b968215a236c71a2614b62879.tar.gz
 Summary  : No detailed summary available
